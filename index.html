@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ece için ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  overflow:hidden;
+  font-family:Poppins, sans-serif;
+  background:linear-gradient(135deg,#ff4e8a,#ff9ecb,#ffd6e7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+}
+
+body::before{
+  content:"Ece";
+  position:fixed;
+  font-family:"Great Vibes";
+  font-size:min(28vw,160px);
+  opacity:0.10;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+
+.card{
+  backdrop-filter:blur(18px);
+  background:rgba(0,0,0,0.25);
+  padding:28px 22px;
+  border-radius:22px;
+  box-shadow:0 0 40px rgba(255,0,90,0.3);
+  width:min(92vw,420px);
+  position:relative;
+  z-index:10;
+}
+
+/* FOTOĞRAF */
+.photoWrap{
+  width:220px;
+  height:220px;
+  margin:10px auto 10px auto;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 0 0 3px rgba(255,255,255,0.6),
+             0 0 25px rgba(255,255,255,0.35);
+  animation:zoomIn 1.2s ease;
+}
+
+.loginPhoto{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(0.85)}
+  to{opacity:1; transform:scale(1)}
+}
+
+h1{
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(34px,7vw,48px);
+  margin:0 0 12px 0;
+}
+
+.note{
+  margin-top:10px;
+  font-size:clamp(14px,3.8vw,16px);
+  font-weight:500;
+}
+
+.loveText{
+  margin-top:12px;
+  font-size:clamp(16px,4vw,18px);
+  font-weight:600;
+}
+
+/* ŞİİR */
+.akrostisTitle{
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(24px,5vw,36px);
+  margin-bottom:10px;
+}
+
+.akrostis{
+  margin-top:16px;
+  font-family:'Great Vibes', cursive;
+  font-size:clamp(18px,2.5vw,28px);
+  line-height:1.6em;
+}
+
+.akrostis .highlight{
+  font-size:1.5em;
+  text-shadow:0 0 12px #fff;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:16px;
+}
+
+button{
+  margin-top:12px;
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  background:#ff2e6e;
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* TIKLAMA KALBİ */
+.click-heart{
+  position:absolute;
+  font-size:22px;
+  animation:pop 1s ease-out forwards;
+  pointer-events:none;
+}
+
+@keyframes pop{
+  0%{transform:scale(0);opacity:1}
+  50%{transform:scale(1.2) translateY(-20px)}
+  100%{transform:scale(0.5) translateY(-60px);opacity:0}
+}
+
+/* AKAN KALPLER */
+.float-heart{
+  position:fixed;
+  font-size:18px;
+  opacity:0.9;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+}
+
+.float-heart.bottom{
+  animation:floatDown linear forwards;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0) scale(0.8);opacity:0}
+  10%{opacity:1}
+  to{transform:translateY(-120vh) scale(1.2);opacity:0}
+}
+
+@keyframes floatDown{
+  from{transform:translateY(0) scale(0.8);opacity:0}
+  10%{opacity:1}
+  to{transform:translateY(120vh) scale(1.2);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<!-- GİRİŞ -->
+<div id="loginPage" class="card">
+  <h1>Ece için 💌</h1>
+
+  <div class="photoWrap">
+    <img class="loginPhoto"
+    src="https://i.ibb.co/CTV20r0/1770751549526.jpg">
+  </div>
+
+  <input type="password" id="passwordInput" placeholder="Şifre">
+  <div class="note">Tanışma tarihimiz (gg aa yy)</div>
+  <button onclick="checkPassword()">Giriş</button>
+</div>
+
+<!-- ROMANTİK SAYFA -->
+<div id="romanticPage" class="card" style="display:none">
+  <h1 id="message"></h1>
+
+  <div class="loveText">
+    Bugün takvim 14 Şubat gerçi, hayatında doğru insan varsa takvim her zaman 14 Şubat olur.
+    Altta senin için yazdığım şiirim var, seni çok seviyorum 🌸
+  </div>
+
+  <h2 class="akrostisTitle">Senin İçin Akrostiş 💖</h2>
+  <div class="akrostis">
+    <div><span class="highlight">E</span>y diye seslenirim sana, hatun</div>
+    <div><span class="highlight">C</span>eylan gözlüm, ister misin bir altun</div>
+    <div><span class="highlight">E</span>skiden derlerdi bana mir-i çeltun</div>
+    <div><span class="highlight">N</span>e vakit vuruldum sana, o vakit oldum mecnun</div>
+    <div><span class="highlight">A</span>y gibi beyaz teninden, bırakma beni mahrum</div>
+    <div><span class="highlight">Z</span>aten, sen istesende istemesende, artık benimsun</div>
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2023/01/24/audio_5b7c6e9f8c.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const PASSWORD = "29022026";
+const loverName = "Ece";
+
+function checkPassword(){
+  if(passwordInput.value === PASSWORD){
+    loginPage.style.display="none";
+    romanticPage.style.display="block";
+    typeText("Sevgililer Günün Kutlu Olsun " + loverName + " ❤️");
+    bgMusic.volume=0.6;
+    bgMusic.play().catch(()=>{});
+  }else{
+    alert("Şifre yanlış ❤️");
+  }
+}
+
+function typeText(text){
+  let i=0;
+  message.innerHTML="";
+  const t=setInterval(()=>{
+    message.innerHTML+=text[i++];
+    if(i>=text.length) clearInterval(t);
+  },70);
+}
+
+document.addEventListener("click",(e)=>{
+  const h=document.createElement("div");
+  h.className="click-heart";
+  h.textContent="❤️";
+  h.style.left=e.clientX+"px";
+  h.style.top=e.clientY+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),1000);
+});
+
+const hearts=["💖","💗","💞","💕","💘","❤️"];
+
+function heartRain(){
+  const mobile = innerWidth < 600;
+  const count = mobile ? 10 : 16;
+
+  setInterval(()=>{
+    for(let i=0;i<count;i++){
+      spawn("top");
+      spawn("bottom");
+    }
+  }, mobile ? 1200 : 1500);
+}
+function spawn(from){
+  const h=document.createElement("div");
+  h.className="float-heart "+(from==="bottom"?"bottom":"");
+  h.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*4+5)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),12000);
+}
+
+heartRain();
+</script>
+
+</body>
+</html>
